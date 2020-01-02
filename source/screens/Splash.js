@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet, Alert} from 'react-native';
 
 export default class Splash extends Component {
   constructor(props) {
@@ -30,6 +30,9 @@ export default class Splash extends Component {
         <View style={styles.loadingContainer}>
           <Text style={styles.textView}>LOADING</Text>
           {this._timerView()}
+          <Text style={styles.textViewNote} onPress={() => this._navigate()}>
+            CLICK HERE TO NAVIGATE
+          </Text>
         </View>
       </View>
     );
@@ -51,6 +54,11 @@ export default class Splash extends Component {
       }, 0);
     }
   }
+
+  _navigate() {
+    Alert.alert('hrllo');
+    this.props.navigation.navigate('Signin');
+  }
 }
 
 const styles = StyleSheet.create({
@@ -65,6 +73,12 @@ const styles = StyleSheet.create({
   },
   textView: {
     fontSize: 20,
+    color: 'white',
+    textAlign: 'center',
+  },
+  textViewNote: {
+    padding: 5,
+    fontSize: 10,
     color: 'white',
   },
   timerViewText: {

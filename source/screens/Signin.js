@@ -59,7 +59,9 @@ export default class Signin extends Component {
     return (
       <TouchableOpacity
         style={styles.signinBtnMainView}
-        onPress={() => this.props.navigation.navigate('Home')}>
+        onPress={() =>
+          this.props.navigation.navigate('Home', {name: 'sankar'})
+        }>
         <Text style={styles.signinBtnTextView}>SIGNIN</Text>
       </TouchableOpacity>
     );
